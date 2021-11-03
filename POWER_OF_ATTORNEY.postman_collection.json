@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "55050b0b-afa2-4d3e-8ffc-a3db09e61fbb",
+		"name": "POWER_OF_ATTORNEY",
+		"description": "Any compliant customer of Rabobank, having a savings account or payment account or both can use this collection. \n\nThe power of attorney is a legal authorization delegation to parties , other than account holders. Thereby fulfilling his financial or non-financial obligations of the bank, without his presence.\n\nThe account holders can give authorizations(Power of Attorney) to other parties.\n\nThe parties, who are already granted access, can inquire about the list of accounts , he/she has access to and the various rights\n\nThis collection contains list of requests to execute and inquire the power of attorney over accounts.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Inquire_Power_Of_Attorney_list_over_accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/api/accounts/power-of-attorney/inquire?user=Paul",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"accounts",
+						"power-of-attorney",
+						"inquire"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "Paul"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute_READ/WRITE_authorization_Power_Of_Attorney_over_a_SAVINGS_account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"granteeName\": \"Paul\",\r\n    \"grantorName\": \"Victoria\",\r\n    \"accountNumber\": \"NL12IaBN3146789\",\r\n    \"accountType\": \"SAVINGS\",\r\n    \"authorization\": \"WRITE\",\r\n    \"balance\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/accounts/power-of-attorney/execute",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"accounts",
+						"power-of-attorney",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute_READ/WRITE_authorization_Power_Of_Attorney_over_a_PAYMENT_account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"granteeName\": \"Paul\",\r\n    \"grantorName\": \"Victoria\",\r\n    \"accountNumber\": \"NL24IaBN3146789\",\r\n    \"accountType\": \"PAYMENT\",\r\n    \"authorization\": \"WRITE\",\r\n    \"balance\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/accounts/power-of-attorney/execute",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"accounts",
+						"power-of-attorney",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

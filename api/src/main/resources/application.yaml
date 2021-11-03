@@ -1,0 +1,19 @@
+#SSL Configuration of application with self signed certs
+server:
+  port: 8443
+  ssl:
+    key-alias: power-of-attorney
+    key-password: Pass@12345
+    key-store-password: Pass@12345
+    key-store-type: JKS
+    key-store: classpath:identity.jks
+
+# Configure the logging level of Mongo Template
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
